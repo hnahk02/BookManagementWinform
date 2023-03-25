@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Statistic));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             pictureBox1 = new PictureBox();
             label4 = new Label();
             panel6 = new Panel();
@@ -232,9 +233,9 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Underline, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(64, 0, 0);
-            label1.Location = new Point(888, 76);
+            label1.Location = new Point(898, 79);
             label1.Name = "label1";
             label1.Size = new Size(112, 26);
             label1.TabIndex = 24;
@@ -262,9 +263,9 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Times New Roman", 13.8F, FontStyle.Underline, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(64, 0, 0);
-            label5.Location = new Point(441, 76);
+            label5.Location = new Point(464, 79);
             label5.Name = "label5";
             label5.Size = new Size(105, 26);
             label5.TabIndex = 21;
@@ -273,7 +274,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Times New Roman", 13.8F, FontStyle.Underline, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(64, 0, 0);
             label3.Location = new Point(347, 28);
             label3.Name = "label3";
@@ -285,7 +286,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Times New Roman", 13.8F, FontStyle.Underline, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(64, 0, 0);
             label2.Location = new Point(745, 28);
             label2.Name = "label2";
@@ -296,7 +297,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Font = new Font("Times New Roman", 13.8F, FontStyle.Underline, GraphicsUnit.Point);
             label7.ForeColor = Color.FromArgb(64, 0, 0);
             label7.Location = new Point(421, 133);
             label7.Name = "label7";
@@ -308,6 +309,14 @@
             // 
             dgv.BackgroundColor = SystemColors.ActiveCaption;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Info;
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Yellow;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgv.DefaultCellStyle = dataGridViewCellStyle1;
             dgv.Location = new Point(272, 274);
             dgv.Name = "dgv";
             dgv.RowHeadersWidth = 51;

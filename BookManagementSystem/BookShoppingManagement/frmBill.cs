@@ -36,6 +36,7 @@ namespace BookShoppingManagement
             lbID.Text = frmLogin.user_id;
             txtBookName.Enabled = false;
             txtPrice.Enabled = false;
+            txtAvailable.Enabled = false;
             LoadDgvListOfBooks();
         }
 
@@ -52,6 +53,7 @@ namespace BookShoppingManagement
                 {
                     txtBookName.Text = book.Title;
                     txtPrice.Text = book.Price.ToString();
+                    txtAvailable.Text = book.Quantity.ToString();
 
 
                     key = book.BookId;
@@ -78,13 +80,14 @@ namespace BookShoppingManagement
         }
 
 
+
         int n = 0; // id
         int grand_total = 0;
         public static int number_of_books_sold = 0;
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            if (txtQuantity.Text == "" || Convert.ToInt32(txtQuantity.Text) > stock)
+            if (txtQuantity.Text == "" || Convert.ToInt32(txtQuantity.Text) > stock || txtPrice.Text == "")
             {
                 MessageBox.Show("Not enough products");
                 Clear();
@@ -96,8 +99,8 @@ namespace BookShoppingManagement
                 newRow.CreateCells(dgvBill);
                 newRow.Cells[0].Value = n + 1;
                 newRow.Cells[1].Value = txtBookName.Text;
-                newRow.Cells[2].Value = txtQuantity.Text;
-                newRow.Cells[3].Value = txtPrice.Text;
+                newRow.Cells[3].Value = txtQuantity.Text;
+                newRow.Cells[2].Value = txtPrice.Text;
                 newRow.Cells[4].Value = total;
 
                 number_of_books_sold += Convert.ToInt32(txtQuantity.Text);
@@ -108,16 +111,20 @@ namespace BookShoppingManagement
                 lbTotal.Text = "Total: " + grand_total.ToString() + "$";
                 dgvBill.Rows.Add(newRow);
                 LoadDgvListOfBooks();
-                Clear();
+                
+                
             }
 
         }
 
         private void Clear()
         {
+           
+            LoadDgvListOfBooks() ;
             txtBookName.Text = string.Empty;
             txtClient.Text = string.Empty;
             txtQuantity.Text = string.Empty;
+            txtAvailable.Text = string.Empty;
             txtPrice.Text = string.Empty;
         }
 
@@ -126,9 +133,21 @@ namespace BookShoppingManagement
 
         }
 
+        
         private void btnReset_Click(object sender, EventArgs e)
         {
+            int new_quantiy = stock; // Fix initial quanity of book when user don't to print bill
+            var book = _context.Books.Find(key);
+            if (book != null)
+            {
+                book.Quantity = new_quantiy;
+                _context.SaveChanges();
+            }
+            dgvBill.Rows.Clear();
+            grand_total = 0;
+            lbTotal.Text = "Total";
             Clear();
+            stock = 0;
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -160,7 +179,7 @@ namespace BookShoppingManagement
             detailsText += "No.\tBook Name\tQuantity\tPrice\tTotal\n\n";
 
             // Add the footer text
-            string footerText = $"\nTotal: {grand_total}$\n\nThank you for shopping with us!";
+            string footerText = $"\nTotal: {grand_total}$\n\nThank you ";
             e.Graphics.DrawString(footerText, headerFont, brush, startX + (300 - headerSize.Width) / 2, startY);
 
         }
@@ -171,11 +190,7 @@ namespace BookShoppingManagement
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 285, 600);
-            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
-            {
-                printDocument1.Print();
-            }
+
 
             if (txtClient.Text == "")
             {
@@ -183,6 +198,11 @@ namespace BookShoppingManagement
             }
             else
             {
+                printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 285, 600);
+                if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument1.Print();
+                }
                 var bill = new Bill()
                 {
                     UserId = Convert.ToInt32(lbID.Text),

@@ -40,13 +40,15 @@
             txtClient = new TextBox();
             txtBookName = new TextBox();
             panel2 = new Panel();
-            label8 = new Label();
             panel3 = new Panel();
             label9 = new Label();
             lbID = new Label();
             lbUserName = new Label();
             pictureBox2 = new PictureBox();
+            label8 = new Label();
             panel1 = new Panel();
+            label3 = new Label();
+            txtAvailable = new TextBox();
             btnSearch = new Button();
             txtSearch = new TextBox();
             btnPrint = new Button();
@@ -105,7 +107,7 @@
             // 
             panel5.BackColor = SystemColors.ActiveCaptionText;
             panel5.Controls.Add(lbLogout);
-            panel5.Location = new Point(3, 508);
+            panel5.Location = new Point(2, 629);
             panel5.Name = "panel5";
             panel5.Size = new Size(245, 49);
             panel5.TabIndex = 3;
@@ -115,7 +117,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.FromArgb(64, 0, 0);
-            label7.Location = new Point(952, 323);
+            label7.Location = new Point(1044, 364);
             label7.Name = "label7";
             label7.Size = new Size(194, 26);
             label7.TabIndex = 7;
@@ -134,7 +136,7 @@
             // 
             // txtClient
             // 
-            txtClient.Location = new Point(1152, 320);
+            txtClient.Location = new Point(1287, 356);
             txtClient.Name = "txtClient";
             txtClient.Size = new Size(182, 34);
             txtClient.TabIndex = 4;
@@ -149,25 +151,14 @@
             // panel2
             // 
             panel2.BackColor = Color.MediumPurple;
+            panel2.Controls.Add(panel3);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(panel5);
             panel2.Location = new Point(0, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(250, 557);
+            panel2.Size = new Size(250, 683);
             panel2.TabIndex = 0;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.BurlyWood;
-            label8.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.ForeColor = Color.FromArgb(64, 0, 0);
-            label8.Location = new Point(21, 232);
-            label8.Name = "label8";
-            label8.Size = new Size(209, 34);
-            label8.TabIndex = 36;
-            label8.Text = "BOOK'S SHOP";
             // 
             // panel3
             // 
@@ -176,7 +167,7 @@
             panel3.Controls.Add(lbID);
             panel3.Controls.Add(lbUserName);
             panel3.Controls.Add(pictureBox2);
-            panel3.Location = new Point(10, 8);
+            panel3.Location = new Point(2, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(250, 90);
             panel3.TabIndex = 36;
@@ -186,9 +177,9 @@
             label9.AutoSize = true;
             label9.BackColor = Color.BurlyWood;
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(113, 61);
+            label9.Location = new Point(106, 61);
             label9.Name = "label9";
-            label9.Size = new Size(27, 20);
+            label9.Size = new Size(42, 26);
             label9.TabIndex = 38;
             label9.Text = "ID:";
             // 
@@ -199,7 +190,7 @@
             lbID.ForeColor = Color.Red;
             lbID.Location = new Point(146, 61);
             lbID.Name = "lbID";
-            lbID.Size = new Size(27, 20);
+            lbID.Size = new Size(42, 26);
             lbID.TabIndex = 37;
             lbID.Text = "ID:";
             // 
@@ -220,16 +211,30 @@
             // 
             pictureBox2.BackColor = Color.LightSteelBlue;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, -8);
+            pictureBox2.Location = new Point(-6, -8);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(100, 98);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 35;
             pictureBox2.TabStop = false;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.BurlyWood;
+            label8.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.FromArgb(64, 0, 0);
+            label8.Location = new Point(21, 232);
+            label8.Name = "label8";
+            label8.Size = new Size(209, 34);
+            label8.TabIndex = 36;
+            label8.Text = "BOOK'S SHOP";
+            // 
             // panel1
             // 
             panel1.BackColor = Color.Thistle;
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(txtAvailable);
             panel1.Controls.Add(btnSearch);
             panel1.Controls.Add(txtSearch);
             panel1.Controls.Add(btnPrint);
@@ -251,10 +256,28 @@
             panel1.Controls.Add(panel2);
             panel1.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.ForeColor = Color.IndianRed;
-            panel1.Location = new Point(12, 2);
+            panel1.Location = new Point(4, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1360, 573);
+            panel1.Size = new Size(1516, 689);
             panel1.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.FromArgb(64, 0, 0);
+            label3.Location = new Point(294, 127);
+            label3.Name = "label3";
+            label3.Size = new Size(98, 26);
+            label3.TabIndex = 37;
+            label3.Text = "Available";
+            // 
+            // txtAvailable
+            // 
+            txtAvailable.Location = new Point(281, 165);
+            txtAvailable.Name = "txtAvailable";
+            txtAvailable.Size = new Size(125, 34);
+            txtAvailable.TabIndex = 36;
             // 
             // btnSearch
             // 
@@ -279,7 +302,7 @@
             // 
             btnPrint.BackColor = Color.PaleGreen;
             btnPrint.ForeColor = Color.Black;
-            btnPrint.Location = new Point(1109, 497);
+            btnPrint.Location = new Point(1221, 617);
             btnPrint.Name = "btnPrint";
             btnPrint.Size = new Size(94, 29);
             btnPrint.TabIndex = 33;
@@ -293,7 +316,7 @@
             lbTotal.BackColor = Color.GhostWhite;
             lbTotal.Font = new Font("Times New Roman", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
             lbTotal.ForeColor = Color.Green;
-            lbTotal.Location = new Point(1109, 419);
+            lbTotal.Location = new Point(1229, 522);
             lbTotal.Name = "lbTotal";
             lbTotal.Size = new Size(86, 39);
             lbTotal.TabIndex = 32;
@@ -329,10 +352,10 @@
             dgvBill.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBill.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.BackColor = SystemColors.Info;
             dataGridViewCellStyle1.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = Color.IndianRed;
-            dataGridViewCellStyle1.SelectionBackColor = Color.GreenYellow;
+            dataGridViewCellStyle1.SelectionBackColor = Color.PaleGreen;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dgvBill.DefaultCellStyle = dataGridViewCellStyle1;
@@ -340,7 +363,7 @@
             dgvBill.Name = "dgvBill";
             dgvBill.RowHeadersWidth = 51;
             dgvBill.RowTemplate.Height = 29;
-            dgvBill.Size = new Size(681, 247);
+            dgvBill.Size = new Size(771, 358);
             dgvBill.TabIndex = 29;
             dgvBill.CellContentClick += dgvBill_CellContentClick;
             // 
@@ -392,10 +415,10 @@
             dgvListOfBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvListOfBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.BackColor = SystemColors.Info;
+            dataGridViewCellStyle3.Font = new Font("Times New Roman", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = Color.IndianRed;
-            dataGridViewCellStyle3.SelectionBackColor = Color.GreenYellow;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Turquoise;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvListOfBooks.DefaultCellStyle = dataGridViewCellStyle3;
@@ -403,7 +426,7 @@
             dgvListOfBooks.Name = "dgvListOfBooks";
             dgvListOfBooks.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvListOfBooks.RowTemplate.Height = 29;
-            dgvListOfBooks.Size = new Size(734, 247);
+            dgvListOfBooks.Size = new Size(873, 271);
             dgvListOfBooks.TabIndex = 28;
             dgvListOfBooks.SelectionChanged += dgvListOfBooks_SelectionChanged;
             // 
@@ -412,7 +435,7 @@
             label6.AutoSize = true;
             label6.BackColor = Color.GhostWhite;
             label6.Font = new Font("Times New Roman", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.ForeColor = Color.Green;
+            label6.ForeColor = Color.Turquoise;
             label6.Location = new Point(697, 4);
             label6.Name = "label6";
             label6.Size = new Size(195, 39);
@@ -424,8 +447,8 @@
             label4.AutoSize = true;
             label4.BackColor = Color.GhostWhite;
             label4.Font = new Font("Times New Roman", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = Color.Green;
-            label4.Location = new Point(523, 281);
+            label4.ForeColor = Color.PaleGreen;
+            label4.Location = new Point(312, 278);
             label4.Name = "label4";
             label4.Size = new Size(66, 39);
             label4.TabIndex = 26;
@@ -488,8 +511,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1375, 578);
-            Controls.Add(panel3);
+            ClientSize = new Size(1524, 693);
             Controls.Add(panel1);
             Name = "frmBill";
             StartPosition = FormStartPosition.CenterScreen;
@@ -548,5 +570,7 @@
         private Label label9;
         private Button btnSearch;
         private TextBox txtSearch;
+        private Label label3;
+        private TextBox txtAvailable;
     }
 }

@@ -55,7 +55,7 @@ namespace BookShoppingManagement
                 _context.Users.Add(user);
                 _context.SaveChanges();
                 LoadDataGridView();
-                MessageBox.Show("Book saved successfully");
+                MessageBox.Show("User saved successfully");
                 Clear();
             }
         }
@@ -81,7 +81,7 @@ namespace BookShoppingManagement
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show("Are you sure you want to update this book?", "Confirmation", MessageBoxButtons.YesNo);
+                    DialogResult result = MessageBox.Show("Are you sure you want to update this user?", "Confirmation", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
                         user.Username = txtUsername.Text;
